@@ -18,7 +18,7 @@ git pull origin master
 
 ## 2. System Requirements
 
-You'll need Python 3, python3-pip, and python3-venv to be installed on your machine:
+You'll need Python 3, python3-pip, and python3-venv to be installed on your machine.
 
 ## 3. Setup
 
@@ -44,10 +44,10 @@ source .venv/bin/activate
 
 **NOTE**: Ensure you add your virtual environment directory to .gitignore to avoid committing unnecessary files to your repository.
 
-To install all requirements, run the following command:
+To install all requirements for local development, run the following command:
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements/local.txt
 ```
 
 ### 3.2 Run Server
