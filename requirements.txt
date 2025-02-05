@@ -1,0 +1,7 @@
+# Django
+# ------------------------------------------------------------------------------
+Django>=4.2,<4.3  # LTS Version (https://www.djangoproject.com/download/)
+
+# Django Rest Framework (DRF)
+# ------------------------------------------------------------------------------
+djangorestframework==3.15.2  # https://www.django-rest-framework.org/
