@@ -8,9 +8,13 @@ class TableSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class ReservationSerializer(serializers.ModelSerializer):
-    user = serializers.ReadOnlyField(source="user.username")
-
+class ReservationListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reservation
-        fields = "__all__"
+        fields = ["user", "table", "number_of_seats", "cost", "booked_at", "active"]
+
+
+class ReservationCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Reservation
+        fields = ["number_of_seats"]
