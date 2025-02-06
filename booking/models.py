@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.core.exceptions import ValidationError
 
 User = get_user_model()
 
@@ -7,6 +8,10 @@ User = get_user_model()
 class Table(models.Model):
     table_number = models.PositiveSmallIntegerField(unique=True)
     total_seats = models.PositiveSmallIntegerField()
+
+    def clean(self):
+        if self.total_seats < 4 or self.total_seats > 10:
+            raise ValidationError("Total seats must be between 4 and 10.")
 
     def __str__(self):
         return f"Table {self.table_number} ({self.total_seats} seats)"

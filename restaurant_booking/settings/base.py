@@ -81,8 +81,8 @@ REST_FRAMEWORK = {
 }
 
 SPECTACULAR_SETTINGS = {
-    "TITLE": "Your Project API",
-    "DESCRIPTION": "Your project description",
+    "TITLE": "Restaurant Booking API",
+    "DESCRIPTION": "Code Challenge Submission for Parstasmim .co Interview - Sahar Farahzad",
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
 }
