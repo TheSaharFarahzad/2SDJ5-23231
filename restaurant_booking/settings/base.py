@@ -82,6 +82,10 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 }
 
+EMAIL_BACKEND = env(
+    "EMAIL_BACKEND", default="django.core.mail.backends.console.EmailBackend"
+)
+
 ROOT_URLCONF = "restaurant_booking.urls"
 
 TEMPLATES = [
