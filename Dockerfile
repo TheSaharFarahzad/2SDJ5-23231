@@ -2,9 +2,9 @@ FROM python:3.12-slim
 
 WORKDIR /code
 
-COPY requirements/base.txt /code/requirements.txt
+COPY requirements /code/requirements
 
-RUN pip install --no-cache-dir -r /code/requirements.txt
+RUN pip install --no-cache-dir -r /code/requirements/local.txt
 
 COPY . /code
 
