@@ -31,9 +31,10 @@ class ReservationViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
+        queryset = Reservation.objects.all()
         if self.action == "cancel":
-            return Reservation.objects.all()
-        return Reservation.objects.filter(user=self.request.user)
+            return queryset.select_related("user", "table")
+        return queryset.filter(user=self.request.user).select_related("table")
 
     def get_serializer_class(self):
         if self.action in ["list", "retrieve"]:
