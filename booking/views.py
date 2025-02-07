@@ -31,6 +31,8 @@ class ReservationViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
+        if self.action == "cancel":
+            return Reservation.objects.all()
         return Reservation.objects.filter(user=self.request.user)
 
     def get_serializer_class(self):
@@ -46,11 +48,25 @@ class ReservationViewSet(viewsets.ModelViewSet):
 
     @action(detail=True, methods=["post"], name="cancel")
     def cancel(self, request, pk=None):
-        reservation = self.get_object()
-        self.validate_cancel_request(reservation, request.user)
+        try:
+            reservation = self.get_object()
+        except Reservation.DoesNotExist:
+            return Response(
+                {"detail": "Reservation not found."},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+
+        try:
+            self.validate_cancel_request(reservation, request.user)
+        except DRFValidationError as e:
+            return Response(
+                {"detail": str(e)},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
         reservation.active = False
         reservation.save()
+
         return Response(
             {"message": "Reservation cancelled successfully."},
             status=status.HTTP_200_OK,
@@ -72,5 +88,11 @@ class ReservationViewSet(viewsets.ModelViewSet):
             cost=cost,
             active=True,
         )
-        response_serializer = ReservationListSerializer(reservation)
-        return Response(response_serializer.data, status=status.HTTP_201_CREATED)
+
+        response_data = {
+            "table": TableSerializer(reservation.table).data,
+            "number_of_seats": reservation.number_of_seats,
+            "cost": str(reservation.cost),
+        }
+
+        return Response(response_data, status=status.HTTP_201_CREATED)
