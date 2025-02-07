@@ -18,7 +18,7 @@ git pull origin master
 
 ## 2. System Requirements
 
-You'll need Python 3, python3-pip, python3-venv, and PostgreSQL to be installed on your machine:
+You'll need Python 3, python3-pip, python3-venv, and PostgreSQL to be installed on your machine.
 
 ## 3. PostgreSQL
 
