@@ -1,1 +1,5 @@
 -r ./base.txt
+
+# Django Debug Toolbar
+# ------------------------------------------------------------------------------
+django-debug-toolbar==5.0.1  # https://django-debug-toolbar.readthedocs.io/en/latest
