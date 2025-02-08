@@ -91,7 +91,7 @@ REST_FRAMEWORK = {
 
 SPECTACULAR_SETTINGS = {
     "TITLE": "Restaurant Booking API",
-    "DESCRIPTION": "Code Challenge Submission for Parstasmim .co Interview - Sahar Farahzad",
+    "DESCRIPTION": "Code Challenge Submission for Parstasmim .co Interview - Sahar Farahzad.\n\n**Authentication Note:**\nAfter registering and logging in, copy the access token from the response and paste it into the Authorize button (top-right of Swagger UI) to authenticate and access protected APIs.",
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
 }
