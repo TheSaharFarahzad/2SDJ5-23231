@@ -56,8 +56,8 @@ class Reservation(models.Model):
 
     @classmethod
     def validate_number_of_seats(cls, number_of_seats):
-        if number_of_seats < 4:
-            raise ValidationError("Number of seats must be at least 4.")
+        if number_of_seats < 1:
+            raise ValidationError("Number of seats must be at least 1.")
         if number_of_seats % 2 != 0:
             number_of_seats += 1
         return number_of_seats

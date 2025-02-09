@@ -6,8 +6,10 @@ from booking.models import Reservation, Table
 @pytest.mark.parametrize(
     "input_seats, expected_output, expect_error",
     [
-        (2, None, True),
-        (3, None, True),
+        (0, None, True),
+        (1, 2, False),
+        (2, 2, False),
+        (3, 4, False),
         (4, 4, False),
         (5, 6, False),
         (6, 6, False),

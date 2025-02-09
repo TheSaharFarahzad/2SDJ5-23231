@@ -56,7 +56,7 @@ def test_reservation_booking(
 @pytest.mark.parametrize(
     "invalid_seat_count, expected_error",
     [
-        (2, "Number of seats must be at least 4."),
+        (2, None),
         (5, None),
         (7, None),
     ],

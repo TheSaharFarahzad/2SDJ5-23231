@@ -79,7 +79,7 @@ def test_create_table(
         (
             0,
             status.HTTP_400_BAD_REQUEST,
-            "Number of seats must be at least 4.",
+            "Number of seats must be at least 1.",
         ),
     ],
 )
