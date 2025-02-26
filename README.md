@@ -18,7 +18,7 @@ This project implements a booking system for a restaurant using Django and Postg
 To clone the repository initially:
 
 ```bash
-git clone https://github.com/CodeWithSahar/2SDJ5-23231.git
+git clone https://github.com/TheSaharFarahzad/2SDJ5-23231.git
 cd 2SDJ5-23231
 ```
 
